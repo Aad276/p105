@@ -1,0 +1,31 @@
+import csv
+with open ('data.csv',newline='') as f:
+    reader = csv.reader(f)
+    file_data=list(reader)
+file_data.pop(0)
+total_weight=0
+total_entries=len(file_data)
+sorted_data=[]
+for Numbers in file_data:
+    total_weight+= float(Numbers[0])
+    sorted_data.append(float(Numbers[0]))
+sorted_data.sort()
+print (total_weight)
+print (total_entries)
+
+mean=total_weight/total_entries
+
+print("mean is"+str(mean))
+
+print(total_weight/total_entries)
+
+print(sorted_data)
+
+
+sum_of_squared_deviation=0
+for Numbers in file_data:
+    sum_of_squared_deviation +=(float(Numbers[0])- mean)**2
+standard_deviation = (sum_of_squared_deviation/(total_entries-1))**0.5
+
+print ("standard deviation is"+str(standard_deviation))
+
